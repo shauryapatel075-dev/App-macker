@@ -1,0 +1,17 @@
+name: APK-Generator
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Creating APK File
+        run: |
+          mkdir -p build
+          echo "This is your generated app file" > build/my-app.apk
+      - name: Upload Finished APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: Download-Your-APK
+          path: build/my-app.apk
