@@ -1,0 +1,17 @@
+name: Generate APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build APK Step
+        run: |
+          mkdir -p build
+          echo "ये आपका डमी ऐप है" > build/app.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-final-app
+          path: build/app.apk
+          
